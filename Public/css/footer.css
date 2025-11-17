@@ -1,0 +1,152 @@
+:root {
+    /* Colores del modo claro */
+    --color-background: #FAF5E1;
+    --color-primary: #5A2E1B;
+    --color-accent: #3399CC;
+    --color-accent-hover: #2B80AD;
+    --color-yellow-light: #E6B800;
+    --color-yellow-light-dark: #B38A00;
+
+    /* Colores del modo oscuro */
+    --color-background-dark: #1a1a1a;
+    --color-header-dark: #2d2d2d;
+    --color-primary-dark: #7A4C2E;
+    --color-accent-dark: #4D87D0;
+    --color-yellow-dark: #F1C200;
+    --color-yellow-dark-dark: #C78A00;
+
+    /* Colores adicionales */
+    --color-white: white;
+    --color-gray: #eeeeee;
+    --color-gray-medium: #DDDDDD;
+    --color-border: #c5c5c5;
+    --color-black-transparent: rgba(0, 0, 0, 0.5);
+
+    /* Colores adicionales para el modo oscuro */
+  
+  --bg-page-dark: #121212;       /* Fondo principal (negro suave) */
+  --bg-card-dark: #1E1E1E;       /* Tarjetas / contenedores */
+  --bg-input-dark: #232323;      /* Inputs */
+  --text-dark: #F2F2F2;          /* Texto */
+  --border-dark: #2A2A2A;        /* Bordes */
+  --brand-primary: #009ece;      /* Azul brillante */
+  --brand-accent: #2E8B57;       /* Verde medio */
+  --brand-emphasis: #104E8B;     /* Azul profundo */
+  --muted-dark: #AAAAAA;         /* Texto secundario */
+}
+
+:root {
+  /* Marca */
+ --brand-primary: #009ece;   /* amarillo más claro */
+    --brand-accent:  #2E8B57;   /* verde más claro */
+    --brand-emphasis:#006786;   /* naranja más claro */
+    --text-color:    #2d2d2d;   /* texto base ligeramente más claro */
+
+  /* Base claro */
+  --bg-page:       #c4e6ff;   /* fondo área de contenido */
+  --bg-card:       #FFFFFF;
+  --bg-input:      #F5FAF7;   /* leve tinte verdoso del acento */
+  --border:        #1D7150;
+  --muted:         #6E6E6E;
+
+  /* Estados */
+  --focus-ring:    rgba(255, 185, 5, 0.35);
+  --shadow-1:      0 6px 20px rgba(0,0,0,0.10);
+  --error-color:   #E63946;
+  --error-dark:    #FF5E5E;
+
+  /* Oscuro */
+  --bg-page-dark:  #121212;
+  --bg-card-dark:  #1E1E1E;
+  --bg-input-dark: #232323;
+  --border-dark:   #2A2A2A;
+  --text-dark:     #F2F2F2;
+}
+
+/* Footer mejorado */
+footer {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--color-yellow-dark) 100%);
+    color: var(--color-primary);
+    padding: 40px 20px 60px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    border-top: 3px solid var(--brand-accent);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.contact-section p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+    .contact-sections {
+        flex-direction: column;
+    }
+    
+    .footer-container {
+
+        padding-bottom: 50px;
+    }
+
+}
+
+body.dark-mode {
+  background-color: var(--bg-page-dark);
+  color: var(--text-dark);
+}
+
+/* Header, footer, tarjetas, modales */
+body.dark-mode .header,
+body.dark-mode .footer,
+body.dark-mode .sidebar,
+body.dark-mode .card,
+body.dark-mode .worldcup-item,
+body.dark-mode .modal-content,
+body.dark-mode .sticky-nav {
+  background-color: var(--bg-card-dark);
+  color: var(--text-dark);
+  border-color: var(--border-dark);
+}
+
+/* Inputs y selects */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: var(--bg-input-dark);
+  color: var(--text-dark);
+  border: 1px solid var(--border-dark);
+}
+
+/* Botones */
+body.dark-mode button {
+  background-color: var(--brand-primary);
+  color: var(--text-dark);
+}
+
+body.dark-mode button:hover {
+  background-color: var(--brand-emphasis);
+}

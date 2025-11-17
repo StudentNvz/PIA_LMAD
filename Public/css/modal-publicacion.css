@@ -1,0 +1,484 @@
+/* Modal de publicación completa */
+.publication-modal-content {
+    max-width: 900px;
+    max-height: 90vh;
+    width: 95%;
+    margin: 2% auto;
+}
+
+.publication-modal-body {
+    padding: 0;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Contenido de la publicación */
+.publication-content {
+    padding: 1.5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.publication-image-container {
+    margin-bottom: 1rem;
+    text-align: center;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--bg-input);
+}
+
+#publication-modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.publication-info h3 {
+    color: var(--brand-accent);
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+body.dark-mode .publication-info  {
+    color: var(--text-color);
+}
+
+.publication-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-input);
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.publication-meta > span {
+    color: var(--muted);
+}
+
+.publication-meta strong {
+    color: var(--text-color2);
+}
+
+body.dark-mode .publication-meta strong {
+    color: var(--muted);
+}
+
+.publication-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color2);
+    margin-bottom: 1.5rem;
+    white-space: pre-wrap;
+}
+
+.publication-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.like-btn-modal, 
+.favorite-btn-modal {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--border);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.like-btn-modal:hover,
+.favorite-btn-modal:hover {
+    background: var(--bg-input);
+    color: var(--brand-primary);
+    border-color: var(--brand-primary);
+}
+
+.like-btn-modal.active {
+    background: rgba(0, 123, 255, 0.1);
+    color: var(--brand-primary);
+    border-color: var(--brand-primary);
+}
+
+.favorite-btn-modal.active {
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+    border-color: #FFD700;
+}
+
+.comments-count {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Sección de comentarios */
+.comments-section {
+    padding: 1.5rem;
+    background: var(--bg-page);
+}
+
+.comments-section h4 {
+    margin: 0 0 1.5rem 0;
+    color: var(--brand-accent);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Formulario de comentarios */
+.comment-form {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.comment-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#comment-text {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    resize: vertical;
+    background: var(--bg-input);
+    color: var(--text-color2);
+    box-sizing: border-box;
+}
+
+#comment-text:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.comment-form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.char-count {
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.btn-comment-submit {
+    background: var(--brand-primary);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-comment-submit:hover:not(:disabled) {
+    background: var(--brand-emphasis);
+    transform: translateY(-1px);
+}
+
+.btn-comment-submit:disabled {
+    background: var(--muted);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Lista de comentarios */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comment-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.comment-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: var(--brand-accent);
+    font-size: 0.9rem;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.comment-content {
+    color: var(--text-color2);
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap;
+}
+
+body.dark-mode .comment-content {
+    color: var(--muted);
+}
+
+.comment-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn-delete-comment {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.btn-delete-comment:hover {
+    background: rgba(220, 53, 69, 0.1);
+    color: #c82333;
+}
+
+.comment-author-badge {
+    background: var(--brand-primary);
+    color: white;
+    padding: 0.1rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+.no-comments {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-style: italic;
+}
+
+.comment-login-required {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--bg-input);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.comment-login-required p {
+    margin-bottom: 1rem;
+    color: var(--muted);
+}
+
+.btn-login-redirect {
+    background: var(--brand-accent);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.btn-login-redirect:hover {
+    background: var(--brand-emphasis);
+}
+
+/* Estados de loading */
+.comments-loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+}
+
+.comment-submitting {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .publication-modal-content {
+        width: 98%;
+        margin: 1% auto;
+        max-height: 95vh;
+    }
+    
+    .publication-content,
+    .comments-section {
+        padding: 1rem;
+    }
+    
+    .publication-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .publication-actions {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+    
+    .comments-count {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+    
+    .comment-form-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    
+    .btn-comment-submit {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .publication-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .comment-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .comment-actions {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Modo oscuro */
+body.dark-mode .publication-modal-content {
+    background: var(--bg-card-dark);
+}
+
+
+body.dark-mode .publication-description {
+    color: var(--muted);
+}
+body.dark-mode .publication-content {
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .publication-meta {
+    background: var(--bg-input-dark);
+    color: var(--muted);
+}
+
+body.dark-mode .comments-section {
+    background: var(--bg-page-dark);
+}
+
+body.dark-mode .comment-form,
+body.dark-mode .comment-item {
+    background: var(--bg-card-dark);
+    border-color: var(--border-dark);
+}
+
+body.dark-mode #comment-text {
+    background: var(--bg-input-dark);
+    color: var(--text-dark);
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .comment-login-required {
+    background: var(--bg-input-dark);
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .publication-actions {
+    border-color: var(--border-dark);
+}
+body.dark-mode .publication-author {
+    color: var(--muted);
+}
+
+body.dark-mode .like-btn-modal,
+body.dark-mode .favorite-btn-modal {
+    border-color: var(--border-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .like-btn-modal:hover,
+body.dark-mode .favorite-btn-modal:hover {
+    background: var(--bg-input-dark);
+}
+
+/* ✅ Estilos faltantes para los nuevos elementos */
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--border);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.action-btn:hover {
+    background: var(--bg-input);
+    color: var(--brand-primary);
+    border-color: var(--brand-primary);
+}
+
+.action-btn.active {
+    background: rgba(0, 123, 255, 0.1);
+    color: var(--brand-primary);
+    border-color: var(--brand-primary);
+}

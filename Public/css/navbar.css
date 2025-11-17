@@ -1,0 +1,166 @@
+:root {
+    /* Colores del modo claro */
+    --color-background: var(--bg-page);          /* #FAF5E1 */
+    --color-primary: var(--brand-emphasis);      /* #7A3911 */
+    --color-accent: var(--brand-accent);         /* #1D7150 */
+    --color-yellow-light: var(--brand-primary);  /* #FFB905 */
+    --color-yellow-dark: #006786;; /* puedes ajustarlo si quieres un tono más oscuro del amarillo */
+
+    /* Colores del modo oscuro */
+    --color-background-dark: var(--bg-page-dark, #121212);
+    --color-primary-dark: var(--brand-emphasis); 
+    --color-accent-dark: var(--brand-accent); 
+    --color-yellow-light-dark: var(--brand-primary); 
+    --color-yellow-dark-dark: #C78A00;
+
+    /* Colores adicionales */
+    --color-white: #FFFFFF;
+    --color-gray: #eeeeee;
+    --color-gray-medium: #DDDDDD;
+    --color-border: var(--border);              /* #1D7150 */
+    --color-black-transparent: rgba(0, 0, 0, 0.5);
+
+    /* Colores adicionales para el modo oscuro */
+   
+  --bg-page-dark: #121212;       /* Fondo principal (negro suave) */
+  --bg-card-dark: #1E1E1E;       /* Tarjetas / contenedores */
+  --bg-input-dark: #232323;      /* Inputs */
+  --text-dark: #F2F2F2;          /* Texto */
+  --border-dark: #2A2A2A;        /* Bordes */
+  --brand-primary: #009ece;      /* Azul brillante */
+  --brand-accent: #2E8B57;       /* Verde medio */
+  --brand-emphasis: #104E8B;     /* Azul profundo */
+  --muted-dark: #AAAAAA;         /* Texto secundario */
+}
+
+:root {
+  /* Marca */
+  --brand-primary: #009ece;   /* amarillo más claro */
+    --brand-accent:  #2E8B57;   /* verde más claro */
+    --brand-emphasis:#006786;   /* naranja más claro */
+    --text-color:    #2d2d2d;   /* texto base ligeramente más claro */
+
+  /* Base claro */
+  --bg-page:       #c4e6ff;   /* fondo área de contenido */
+  --bg-card:       #FFFFFF;
+  --bg-input:      #F5FAF7;   /* leve tinte verdoso del acento */
+  --border:        #1D7150;
+  --muted:         #6E6E6E;
+
+  /* Estados */
+  --focus-ring:    rgba(255, 185, 5, 0.35);
+  --shadow-1:      0 6px 20px rgba(0,0,0,0.10);
+  --error-color:   #E63946;
+  --error-dark:    #FF5E5E;
+
+  /* Oscuro */
+  --bg-page-dark:  #121212;
+  --bg-card-dark:  #1E1E1E;
+  --bg-input-dark: #232323;
+  --border-dark:   #2A2A2A;
+  --text-dark:     #F2F2F2;
+}
+
+/* Barra inferior fija */
+.sticky-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+.sticky-nav a {
+    text-decoration: none;
+    color: var(--color-yellow-light);
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.sticky-nav a:hover {
+    background-color: rgba(5, 84, 255, 0.15); /* amarillo con transparencia */
+    transform: translateY(-3px);
+}
+
+.sticky-nav i {
+    font-size: 24px;
+    color: var(--color-yellow-light);
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+    .sticky-nav {
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sticky-nav {
+        display: none;
+    }
+}
+body.dark-mode {
+  background-color: var(--bg-page-dark);
+  color: var(--text-dark);
+}
+
+/* Header, footer, tarjetas, modales */
+body.dark-mode .header,
+body.dark-mode .footer,
+body.dark-mode .sidebar,
+body.dark-mode .card,
+body.dark-mode .worldcup-item,
+body.dark-mode .modal-content,
+body.dark-mode .sticky-nav {
+  background-color: var(--bg-card-dark);
+  color: var(--text-dark);
+  border-color: var(--border-dark);
+}
+
+/* Inputs y selects */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: var(--bg-input-dark);
+  color: var(--text-dark);
+  border: 1px solid var(--border-dark);
+}
+
+/* Botones */
+body.dark-mode button {
+  background-color: var(--brand-primary);
+  color: var(--text-dark);
+}
+
+body.dark-mode button:hover {
+  background-color: var(--brand-emphasis);
+}
+
+body.dark-mode .main-nav {
+  background-color: var(--bg-card-dark); /* fondo oscuro */
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+/* Enlaces claros */
+body.dark-mode .main-nav .nav-link {
+  color: var(--text-dark); /* texto claro */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+/* Hover con acento */
+body.dark-mode .main-nav .nav-link:hover {
+  color: var(--brand-primary); /* azul brillante */
+}

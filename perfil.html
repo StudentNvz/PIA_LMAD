@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil de Usuario</title>
+
+<link rel="stylesheet" href="Public/css/perfil.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="theme-toggle">
+  <input type="checkbox" class="checkbox" id="toggleTheme" onclick="toggleDarkMode(this)">
+  <label for="toggleTheme" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span>
+  </label>
+</div>
+
+<header>
+  <h1>Mi Perfil</h1>
+</header>
+
+<section class="user-actions">
+  <button id="btn-regresar">← Regresar al inicio</button>
+  <button id="btn-editar">✎ Editar perfil</button>
+</section>
+
+<section class="user-info two-columns">
+  <div class="profile-image-column">
+    <h2>Foto de perfil</h2>
+    <div class="profile-image-wrapper">
+      <img id="profile-foto" src="Imagenes/default-user.png" alt="Foto de perfil">
+      <br>
+    </div>
+  </div>
+   <div class="profile-info-column">
+    <h2>Datos del usuario</h2>
+    <div id="edit-info-form">
+  <p><strong>Nombre:</strong> <span id="profile-name"></span></p>
+  <p><strong>Email:</strong> <span id="profile-email"></span></p>
+  <p><strong>Contraseña:</strong> <span id="profile-contra"></span></p>
+  <p><strong>Genero:</strong> <span id="profile-genero"></span></p>
+  <p><strong>Fecha de nacimiento:</strong> <span id="profile-fecha"></span></p>
+  <p><strong>Pais de nacimiento:</strong> <span id="profile-pais"></span></p>
+  <p><strong>Nacionalidad:</strong> <span id="profile-nacionalidad"></span></p>
+</div>
+  </div>
+
+</section>
+
+<section class="user-posts">
+  <h2> Mis Publicaciones</h2>
+  <div id="posts-container">
+  </div>
+</section>
+
+<section class="user-posts">
+  <h2> Mis Favoritos</h2>
+  <div id="favorites-container">
+  </div>
+</section>
+
+<div id="editModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close" id="closeeditModal">&times;</span>
+    <h2>Editar Perfil</h2>
+    <form id="edit-form">
+       <div class="profile-image-column">
+    <h2>Foto de perfil</h2>
+    <div class="profile-image-wrapper">
+      <img id="edit-foto" src="Imagenes/default-user.png" alt="Foto de perfil">
+      <br>
+    </div>
+  </div>
+  <input type="file" id="input-foto" accept="image/*" style="display:none;">
+      <button id="btn-editar-foto" type="button" style="margin-top:10px;">Editar foto</button>
+      <label>Nombre completo:</label>
+      <input type="text" id="edit-nombre" name="nombre" required>
+      <label>Fecha de nacimiento:</label>
+      <input type="date" id="edit-fecha" name="fecha" required>
+      <label>Género:</label>
+      <input type="text" id="edit-genero" name="genero">
+      <label>Pais nacimiento:</label>
+      <select id="edit-pais" name="pais"></select>
+      <label>Nacionalidad:</label>
+      <select id="edit-nacionalidad" name="nacionalidad"></select>
+      <label>Email:</label>
+      <input type="email" id="edit-correo" name="correo" required>
+      <label>Contraseña:</label>
+      <input type="text" id="edit-password" name="password">
+      <button type="submit" class="btn-save">Guardar cambios</button>
+    </form>
+    <div id="edit-msg"></div>
+  </div>
+</div>
+
+
+<div id="publiEDITModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" id="publicloseeditModal">&times;</span>
+    <h2>Editar Publicación</h2>
+    <form id="edit-form-publi">
+    <input type="hidden" id="edit-publication-id">
+    <h2>Foto de Publicación</h2>
+    <div class="edit-image-wrapper">
+      <img id="edit-foto-publi" style="width: 100%; border-radius: 5px;" src="Imagenes/default-user.png" alt="Foto de Publicación">
+       <button id="btn-editar-foto-publi" type="button" style="
+         background: var(--brand-accent);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    transition: background 0.3s;
+       margin-top:10px;">Editar foto</button>
+      <input type="file" id="input-foto-publi" accept="image/*" style="display:none;">
+      <br>
+    </div>
+          <label id="publication-modal-title-full">Título de la publicación:</label>
+          <input type="text" id="edit-publication-title" name="title" required>      
+          <label class="publication-country" id="publication-country">País: </label>
+          <select id="post-country" name="pais" required>
+                       <option value="">Selecciona un pais</option>      
+          </select>
+          <label class="publication-mundial" id="publication-mundial">Mundial: </label>
+          <select id="post-worldcup" name="worldcup" required>
+          <option value="">Selecciona un mundial</option>
+          </select>
+          <label class="publication-categoria" id="publication-categoria">Categoría: </label>
+          <select id="post-category" name="category" required>
+          <option value="">Selecciona una categoría</option>
+        </select>
+        <label class="publication-description" id="publication-description">Descripción de la publicación:</label>
+        <textarea id="edit-publication-description" name="description" required></textarea>
+          <div class="publication-actions">
+            <button class="action-btn like-btn-modal" id="like-btn-modal" title="Me gusta">
+              <i class="fas fa-thumbs-up"></i>
+              <span class="count" id="like-count-modal">0</span>
+            </button>
+            <span class="comments-count">
+              <i class="fas fa-comments"></i>
+              <span id="comments-count-modal">0</span> comentarios
+            </span>
+          </div>
+          <button type="submit" class="btn-save" id="btn-guardar-edicion">Guardar cambios</button>
+     
+    </form>
+  </div>
+</div>
+
+
+<script src="Public/js/perfil.js"></script>
+<script src="Public/js/paises.js"></script>
+
+<script>
+function toggleDarkMode(checkbox) {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        checkbox.checked = true;
+        console.log(' Modo oscuro');
+    } else {
+        localStorage.setItem("theme", "light");
+        checkbox.checked = false;
+        console.log('Modo claro');
+    }
+}
+
+(function() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+})();
+</script>
+
+</body>
+</html>

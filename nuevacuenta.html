@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Cuenta</title>
+    
+    <link rel="stylesheet" href="Public/css/nuevacuenta.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+   
+</head>
+
+<body>
+    <div class="theme-toggle">
+  <input type="checkbox" class="checkbox" id="toggleTheme" onclick="toggleDarkMode(this)">
+  <label for="toggleTheme" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span>
+  </label>
+</div>
+   
+
+    <div class="container">
+        <main id="main-content">
+            <h1>Nueva cuenta</h1>
+            
+            <div class="register-box">
+                <div class="logo">
+                    <img src="Imagenes/Logo1.png" alt="Futshito">
+                </div>
+
+                <form id="registerForm" action="register.php" method="POST" enctype="multipart/form-data">
+                    <!-- Nombre completo -->
+                    <label for="nombreCompleto">Nombre completo</label>
+                    <input type="text" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre completo" required>
+                    
+                    <!-- Fecha de nacimiento -->
+                    <label for="fechaNacimiento">Fecha de nacimiento (solo mayores de 12 años)</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                    
+                    <!-- Foto -->
+                    <label for="foto">Foto</label>
+                    <input type="file" id="foto" name="foto" accept="image/*">
+                    
+                    <!-- Género -->
+                    <label for="genero">Género</label>
+                    <select id="genero" name="genero" required>
+                        <option value="">Selecciona tu género</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                        <option value="prefiero-no-decir">Prefiero no decir</option>
+                    </select>
+                    
+                    <!-- País de nacimiento -->
+                    <label for="paisNacimiento">País de nacimiento</label>
+                    <select id="paisNacimiento" name="paisNacimiento" required>
+                        <option value="">Selecciona tu país de nacimiento</option>
+                      
+                    </select>
+                    
+                    <!-- Nacionalidad -->
+                    <label for="nacionalidad">Nacionalidad</label>
+                    <select id="nacionalidad" name="nacionalidad" required>
+                        <option value="">Selecciona tu nacionalidad</option>
+                       
+                    </select>
+                    
+                    <!-- Email -->
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@ejemplo.com" required>
+                    
+                    <!-- Contraseña -->
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="********" required>
+
+                    <div class="password-requirements">
+
+                    </div>
+                    
+                    <button type="submit">Registrar</button>
+                </form>
+
+                <div class="login-link">
+                    <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+                </div>
+                
+                <p class="terms">Al hacer clic en "Registrar", aceptas nuestros términos y condiciones</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="Public/js/app-storage.js"></script>
+    <script src="Public/js/nuevacuenta.js"></script>
+    <script src="Public/js/paises.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goles y Copas</title>
+
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=upload"/>
+
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=upload"/>
+
+  <link rel="stylesheet" href="Public/css/inicio.css?v=1.1">
+<link rel="stylesheet" href="Public/css/navbar.css?v=1.1">
+<link rel="stylesheet" href="Public/css/footer.css?v=1.1">
+<link rel="stylesheet" href="Public/css/filtro.css?v=1.1">
+<link rel="stylesheet" href="Public/css/modal.css?v=1.1">
+<link rel="stylesheet" href="Public/css/publicaciones-inicio.css">
+<link rel="stylesheet" href="Public/css/modal-publicacion.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <img src="Imagenes/Logo1.png" alt="Futshito">
+        <input type="checkbox" class="checkbox" id="toggleTheme" onclick="toggleDarkMode(this)">
+  <label for="toggleTheme" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span>
+  </label>
+    </div>
+
+    <nav class="main-nav">
+       
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="" class="nav-link">Publicaciones</a>
+    </nav>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar publicaciones...">
+      <button>🔍</button>
+    </div>
+
+ <div class="actions">
+  <span id="user-name" style="display: none; margin-left: 10px; cursor: pointer; text-decoration: underline;"></span>
+    <button class="btn-secondary" id="adminBtn" style="display: none;">Panel Admin</button>
+    <button class="btn-primary" id="createPostBtn">Crear Publicación +</button>
+    <button class="btn-secondary" id="loginBtn">Iniciar Sesión</button> 
+</div>
+</header>
+
+
+<nav class="filters">
+
+  <span class="filter-toggle" id="toggleFilters">🔽 Mostrar filtros</span>
+
+  <div class="filter-section" id="filterSection">
+    <span>Filtrar por Mundial:</span>
+    <div class="filter-buttons">
+       <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="uruguay-1930">Uruguay 1930</button>
+<button class="filter-btn" data-filter="italia-1934">Italia 1934</button>
+<button class="filter-btn" data-filter="francia-1938">Francia 1938</button>
+<button class="filter-btn" data-filter="brasil-1950">Brasil 1950</button>
+<button class="filter-btn" data-filter="suiza-1954">Suiza 1954</button>
+<button class="filter-btn" data-filter="suecia-1958">Suecia 1958</button>
+<button class="filter-btn" data-filter="chile-1962">Chile 1962</button>
+<button class="filter-btn" data-filter="inglaterra-1966">Inglaterra 1966</button>
+<button class="filter-btn" data-filter="mexico-1970">México 1970</button>
+<button class="filter-btn" data-filter="alemania-occidental-1974">Alemania Occidental 1974</button>
+<button class="filter-btn" data-filter="argentina-1978">Argentina 1978</button>
+<button class="filter-btn" data-filter="espana-1982">España 1982</button>
+<button class="filter-btn" data-filter="mexico-1986">México 1986</button>
+<button class="filter-btn" data-filter="italia-1990">Italia 1990</button>
+<button class="filter-btn" data-filter="usa-1994">Estados Unidos 1994</button>
+<button class="filter-btn" data-filter="francia-1998">Francia 1998</button>
+<button class="filter-btn" data-filter="corea-japon-2002">Corea/Japón 2002</button>
+<button class="filter-btn" data-filter="alemania-2006">Alemania 2006</button>
+<button class="filter-btn" data-filter="sudafrica-2010">Sudáfrica 2010</button>
+<button class="filter-btn" data-filter="brasil-2014">Brasil 2014</button>
+<button class="filter-btn" data-filter="rusia-2018">Rusia 2018</button>
+<button class="filter-btn" data-filter="catar-2022">Catar 2022</button>
+<button class="filter-btn" data-filter="usa-canada-mexico-2026">Estados Unidos/Canadá/México 2026</button>
+    </div>
+  </div>
+    
+  <div class="sort-section">
+    <span class="filter-icon">⚙️</span>
+    <span>Ordenar por:</span>
+    <select class="sort-select" id="sortSelect">
+      <option value="chronological">Cronológico</option>
+      <option value="country">País</option>
+      <option value="likes">Más likes</option>
+      <option value="comments">Más comentarios</option>
+    </select>
+  </div>
+</nav>
+
+ <section class="mostrar-datos">
+
+  </section>
+
+  <section class="mostrar-publicaciones">
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Derechos reservados a Futshito</p>
+  </footer>
+
+  <!-- Barra inferior-->
+  <nav class="sticky-nav">
+    <a href="#"><i class="fi fi-rr-home"></i> Inicio</a>
+    <a href="#" class="nav-item create-btn"><span class="material-symbols-outlined">upload</span>Crear</a>
+    <a href="nuevacuenta.html"><i class="fi fi-rr-user"></i> Cuenta</a>
+  </nav>
+
+  <!-- Modal para crear publicación -->
+<div id="createModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Crear Nueva Publicación</h2>
+      <span class="close">&times;</span>
+    </div>
+    <form id="create-post-form" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="post-title">Título de la publicación</label>
+        <input type="text" id="post-title" name="title" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="post-content">Contenido</label>
+        <textarea id="post-content" name="content" rows="4" required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="post-category">Categoría</label>
+        <select id="post-category" name="category" required>
+          <option value="">Selecciona una categoría</option>
+          
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="post-worldcup">Mundial relacionado</label>
+        <select id="post-worldcup" name="worldcup" required>
+          
+        </select>
+      </div>
+      
+     <div class="form-group">
+        <label for="post-country">País (opcional)</label>
+         <select id="post-country" name="pais" required>
+                       <option value="">Selecciona un pais</option>      
+          </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="post-media">Imagen o Video</label>
+        <input type="file" id="post-media" name="media" accept="image/*,video/*" required>
+        <small>Formatos permitidos: JPG, PNG, GIF, MP4, AVI</small>
+      </div>
+      
+      <div class="form-actions">
+        <button type="button" class="btn-cancel">Cancelar</button>
+        <button type="submit" class="btn-submit">Publicar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal para ver publicación completa -->
+<div id="publicationModal" class="modal" style="display: none;">
+  <div class="modal-content publication-modal-content">
+    <div class="modal-header">
+      <h2 id="publication-modal-title">Publicación</h2>
+      <span class="close" id="closePublicationModal">&times;</span>
+    </div>
+    
+    <div class="publication-modal-body">
+      <!-- Contenido de la publicación -->
+      <div class="publication-content">
+        <div class="publication-image-container" id="publication-image-container" style="display: none;">
+          <img id="publication-modal-image" src="" alt="Imagen de publicación">
+        </div>
+        
+        <div class="publication-info">
+          <h3 id="publication-modal-title-full">Título de la publicación</h3>
+          
+          <div class="publication-meta">
+            <span class="publication-author" id="publication-author">Por: <strong>Autor</strong></span>
+            <span class="publication-date" id="publication-date">Fecha</span>
+            <span class="publication-country" id="publication-country">País</span>
+          </div>
+           <span class="publication-mundial" id="publication-mundial">Mundial</span>
+            <span class="publication-categoria" id="publication-categoria">Categoría</span>
+          <div class="publication-description" id="publication-description">Descripción de la publicación...</div>
+          
+          <div class="publication-actions">
+            <button class="action-btn like-btn-modal" id="like-btn-modal" title="Me gusta">
+              <i class="fas fa-thumbs-up"></i>
+              <span class="count" id="like-count-modal">0</span>
+            </button>
+            
+            <button class="action-btn favorite-btn-modal" id="favorite-btn-modal" title="Agregar a favoritos">
+              <i class="fas fa-star"></i>
+            </button>
+            
+            <span class="comments-count">
+              <i class="fas fa-comments"></i>
+              <span id="comments-count-modal">0 </span> comentarios
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="comments-section">
+        <h4>Comentarios</h4>
+        
+        <div class="comment-form" id="comment-form-container">
+          <form id="comment-form">
+            <div class="comment-input-group">
+              <textarea id="comment-text" 
+                        placeholder="Escribe tu comentario..." 
+                        rows="3" 
+                        maxlength="500" 
+                        required></textarea>
+              <div class="comment-form-actions">
+                <span class="char-count" id="char-count">0/500</span>
+                <button type="submit" class="btn-comment-submit" id="btn-comment-submit">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+
+        <div class="comments-list" id="comments-list">
+
+        </div>
+
+        <div class="no-comments" id="no-comments" style="display: none;">
+          <p>Sé el primero en comentar esta publicación</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+<script src="Public/js/create-post.js"></script>
+<script src="Public/js/publiabrobadas.js"></script>
+<script src="Public/js/toggle.js"></script>
+<script src="Public/js/modal.js"></script>
+<script src="Public/js/modal-publicacion.js"></script>
+<script src="Public/js/paises.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const userName = localStorage.getItem("userName");
+    const userRole = localStorage.getItem("userRole");
+    const userElement = document.getElementById("user-name");
+    const loginBtn = document.getElementById("loginBtn");
+    const adminBtn = document.getElementById("adminBtn"); 
+
+    if (localStorage.getItem("isLoggedIn") === "true" && userName) {
+        userElement.textContent = userName;
+        userElement.style.display = "inline";
+        
+        userElement.style.cursor = "pointer";
+        userElement.style.textDecoration = "underline";
+        userElement.onclick = () => {
+            window.location.href = "perfil.html";
+        };
+
+        if (userRole === 'admin') {
+            adminBtn.style.display = "inline-block";
+            adminBtn.onclick = () => {
+                window.location.href = "admin.html";
+            };
+        } else {
+            adminBtn.style.display = "none";
+        }
+
+        loginBtn.textContent = "Cerrar sesión";
+        loginBtn.onclick = () => {
+            localStorage.clear();
+            window.location.href = "login.html";
+        };
+    } else {
+        userElement.style.display = "none";
+        adminBtn.style.display = "none"; 
+        loginBtn.textContent = "Iniciar sesión";
+        loginBtn.onclick = () => window.location.href = "login.html";
+    }
+});
+
+function toggleDarkMode(checkbox){
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+    checkbox.checked = true;
+  } else {
+    localStorage.setItem("theme", "light");
+    checkbox.checked = false;
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const checkbox = document.getElementById("toggleTheme");
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    if (checkbox) checkbox.checked = true;
+  }
+});
+</script>
+
+</body>
+</html>

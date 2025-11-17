@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Admin - Goles y Copas</title>
+  <link rel="stylesheet" href="Public/css/admin.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+  <header>
+    <h1>Panel de Administración</h1>
+    <a href="index.html"><i class="fas fa-home"></i></a>
+    <button onclick="logout()">Cerrar sesión</button>
+  </header>
+
+  <main>
+    <input type="checkbox" class="checkbox" id="toggleTheme" onclick="toggleDarkMode(this)">
+    <label for="toggleTheme" class="checkbox-label">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+      <span class="ball"></span>
+    </label>
+
+    <section>
+      <section class="user-posts"> 
+        <h2>Publicaciones pendientes</h2>
+ <div id="pendientes">
+       
+      </div>
+</section>
+
+    <section>
+      <div class="categorias-card">
+  <h2>Crear Categoría</h2>
+<input type="text" id="categoria" placeholder="Ej. Mundiales">
+<button onclick="crearCategoria()">Agregar</button>
+
+      </div>
+  
+<div id="mensaje-categoria" class="categorias-card"></div>
+
+<div id="post-category" class="categorias-card">
+</div>
+    </section>
+
+ 
+      <section>
+  <h2>Crear Página de Mundial</h2>
+  <form id="mundial-form">
+    <input type="text" id="paismundial" placeholder="Nombre del Mundial">
+    <input type="text" id="sede" placeholder="Sede">
+    <input type="date" id="year" placeholder="Año">
+    <input type="url" id="imagen_mundial" placeholder="URL de imagen">
+    <textarea id="resena_mundial" placeholder="Breve reseña"></textarea>
+    <button type="submit">Crear</button>
+  </form>
+  <div id="mundiales-grid"></div>
+</section>
+
+
+  </main>
+<div id="publiEDITModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" id="publicloseeditModal">&times;</span>
+    <h2>Editar Mundial</h2>
+    <form id="edit-form-publi">
+    <input type="hidden" id="edit-publication-id">
+    <h2>Foto de Mundial</h2>
+    <div class="edit-image-wrapper">
+      <img id="edit-foto-publi" style="width: 100%; border-radius: 5px;" src="Imagenes/default-post.jpg" alt="Foto de Publicación">
+     <label>Imagen (URL)</label>
+  <input type="text" id="edit-publication-image">
+  <br>
+    </div>
+    <label>Nombre del Mundial</label>
+  <input type="text" id="edit-publication-title"><br>
+  <label>Sede</label>
+  <input type="text" id="edit-publication-sede"><br>
+  <label>Año</label>
+  <input type="date" id="edit-publication-year"><br>
+  <label>Reseña</label>
+  <textarea id="edit-publication-description"></textarea><br>
+  
+          <div class="publication-actions">
+            <span class="action-btn like-btn-modal" id="like-btn-modal" title="Me gusta">
+              <i class="fas fa-thumbs-up"></i>
+              <span class="count" id="like-count-modal">0</span>
+            </span>
+            <span class="comments-count">
+              <i class="fas fa-comments"></i>
+              <span id="comments-count-modal">0</span>
+            </span>
+          </div>
+          <button type="submit" class="btn-save" id="btn-guardar-edicion">Guardar cambios</button>
+     
+    </form>
+  </div>
+</div>
+ 
+<script src="Public/js/admin.js"></script>
+
+
+</body>
+</html>

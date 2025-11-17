@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    
+    <link rel="stylesheet" href="Public/css/login.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+
+</head>
+<body>
+<div class="theme-toggle">
+  <input type="checkbox" class="checkbox" id="toggleTheme" onclick="toggleDarkMode(this)">
+  <label for="toggleTheme" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span>
+  </label>
+</div>
+    <div class="container">
+        
+        <h1 class="login-title">Iniciar sesión</h1>
+        
+        <div class="login-box" role="region" aria-labelledby="main-content">
+            <div class="logo" aria-hidden="true">
+                <img src="Imagenes/Logo1.png" alt="" role="presentation">
+            </div>
+
+            <form id="login-form" aria-label="Formulario de inicio de sesión">
+    
+  
+                <div class="form-group">
+                    <label class="email" for="email" id="email-label">Correo electrónico</label>
+                    <input type="text" id="email" name="email" placeholder="ejemplo@ejemplo.com" 
+                           aria-labelledby="email-label" aria-required="true" required>
+                    <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+  
+                <div class="form-group">
+                    <label class="passwoord" for="password" id="password-label">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="********" 
+                           aria-labelledby="password-label" aria-required="true" required>
+                    <div id="password-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <button type="submit" aria-label="Iniciar sesión">Iniciar Sesión</button>
+            </form>
+
+            <p class="register">
+                ¿No tienes una cuenta? 
+                <a href="nuevacuenta.html" aria-label="Crear una nueva cuenta">Crea una cuenta</a>
+            </p>
+
+            <p class="guest">
+                <a href="index.html" aria-label="Continuar como invitado">Continuar como invitado</a>
+            </p>
+
+        </div>
+    </div>
+    
+    <script src="Public/js/login.js"></script>
+
+<script src="Public/js/app-storage.js"></script>
+
+</body>
+</html>
